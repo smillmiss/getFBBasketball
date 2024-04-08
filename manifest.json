@@ -1,0 +1,42 @@
+﻿{
+  "manifest_version": 3,
+  "name": "FB篮球数据采集",
+  "version": "1.0",
+  "description": "FB篮球数据采集",
+  "action": {
+    "default_icon": {
+      "19": "images/icon.png"
+    },
+    "default_title": "FB篮球数据采集",
+    "default_popup": "start.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://ipc.skkplus.com/*",
+        "https://ipc.skkplux.com/*"
+      ],
+      "js": [
+        "jquery-3.1.1.min.js",
+        "js/lib.js",
+        "js/time.js",
+        "js/before.js",
+        "js/after.js",
+        "js/addData.js",
+        "js/makeBet.js"
+      ],
+      "all_frames": true
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ]
+}
